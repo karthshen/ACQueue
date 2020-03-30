@@ -2,12 +2,13 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value,
-    tags: []
+    value: this.props.counter.initialValue,
+    fontSize: this.props.counter.fontSize,
+    tags: ["List1"]
   };
 
   styles = {
-    fontSize: 15,
+    fontSize: this.state.fontSize,
     fontWeight: "bold"
   };
 
@@ -27,9 +28,21 @@ class Counter extends Component {
         </span>
         <button
           onClick={this.handleIncrement}
-          className="btn btn-secondary btn-sm"
+          className="btn btn-success btn-sm m-2"
         >
           Increment
+        </button>
+        <button
+          onClick={this.handleDecrement}
+          className="btn btn-secondary btn-sm m-2"
+        >
+          Decrement
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
@@ -37,6 +50,10 @@ class Counter extends Component {
 
   handleIncrement = () => {
     this.setState({ value: ++this.state.value });
+  };
+
+  handleDecrement = () => {
+    if (this.state.value != 0) this.setState({ value: --this.state.value });
   };
 
   getBadgeClasses() {
@@ -71,6 +88,10 @@ class Counter extends Component {
         ))}
       </ul>
     );
+  }
+
+  handleReset() {
+    this.setState({ value: 0 });
   }
 }
 
