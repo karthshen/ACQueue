@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.counter.initialValue,
+    //value: this.props.counter.value,
     fontSize: this.props.counter.fontSize,
     tags: ["List1"]
   };
@@ -49,21 +49,22 @@ class Counter extends Component {
   }
 
   handleIncrement = () => {
-    this.setState({ value: ++this.state.value });
+    this.props.onIncrement(this.props.counter);
   };
 
   handleDecrement = () => {
-    if (this.state.value != 0) this.setState({ value: --this.state.value });
+    if (this.props.counter.value != 0)
+      this.props.onDecrement(this.props.counter);
   };
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.value === 0 ? "warning" : "primary";
+    classes += this.props.counter.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatValue() {
-    const value = this.state.value;
+    const value = this.props.counter.value;
 
     if (value === 0) {
       return "Zero";
@@ -88,10 +89,6 @@ class Counter extends Component {
         ))}
       </ul>
     );
-  }
-
-  handleReset() {
-    this.setState({ value: 0 });
   }
 }
 
