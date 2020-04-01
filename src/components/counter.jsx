@@ -71,7 +71,7 @@ class Counter extends Component {
     // } else {
     //   return value;
     // }
-    console.log("Value: ", value);
+    //console.log("Value: ", value);
     return value;
   }
 

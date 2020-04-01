@@ -17,7 +17,8 @@ class App extends Component {
                         onDecrement={this.handleDecrement}
                         onDelete={this.handleDelete}
                         onAdding={this.handleAddition}
-                        onClear={this.handleClear} />
+                        onClear={this.handleClear}
+                        updateFromServer={this.updateFromServer} />
                 </main>
             </React.Fragment>
         );
@@ -32,6 +33,26 @@ class App extends Component {
             // { id: 5, value: 0, fontSize: 15 }
         ]
     };
+
+    componentDidMount() {
+        this.updateFromServer();
+    }
+
+    updateFromServer = () => {
+        return fetch('/getUserList')
+            .then((response) => response.json())
+            .then((json) => {
+                var arr = [];
+
+                for (var obj in json) {
+                    arr.push(obj);
+                }
+                this.setState({ counters: json });
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 
     handleDelete = counterId => {
         const counters = this.state.counters.filter(c => c.id != counterId);

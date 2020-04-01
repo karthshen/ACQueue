@@ -17,6 +17,22 @@ class Counters extends Component {
     document.getElementById("inputForm").reset();
   }
 
+  handlePostNewItem = () => {
+    fetch('/addUser', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        value: this.state.inputField
+      }),
+    });
+
+    this.setState({ inputField: "" });
+    document.getElementById("inputForm").reset();
+  }
+
   render() {
 
     const { counters, onIncrement, onDecrement, onDelete, onReset, onAdding, onClear } = this.props;
@@ -37,7 +53,7 @@ class Counters extends Component {
         <div className="input-group">
           <span className="input-group-btn">
             <button
-              onClick={this.handleAddNewItem}
+              onClick={this.handlePostNewItem.bind(this)}
               className="btn btn-success btn-la m-2"
             >Add</button>
           </span>
