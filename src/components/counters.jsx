@@ -5,7 +5,7 @@ class Counters extends Component {
 
   render() {
 
-    const { counters, onIncrement, onDecrement, onDelete, onReset } = this.props;
+    const { counters, onIncrement, onDecrement, onDelete, onReset, onAdding, onClear } = this.props;
 
     return (
       <React.Fragment>
@@ -21,11 +21,18 @@ class Counters extends Component {
           ))}
         </div>
         <button
+          onClick={onAdding}
+          className="btn btn-success btn-la m-2"
+        >Add</button>
+        <button
           onClick={onReset}
-          className="btn btn-danger btn-la m-2"
+          className="btn btn-warning btn-la m-2"
         >
           Reset
         </button>
+        <button
+          onClick={onClear}
+          className="btn btn-danger btn-la m-2">Clear</button>
       </React.Fragment>
     );
   }

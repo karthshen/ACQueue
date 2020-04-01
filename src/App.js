@@ -8,14 +8,16 @@ class App extends Component {
     render() {
         return (
             <React.Fragment>
-                <NavBar />
-                <main className="container">
+                <NavBar totalCounters={this.state.counters.length} />
+                <main className="App">
                     <Counters
                         counters={this.state.counters}
                         onReset={this.handleReset}
                         onIncrement={this.handleIncrement}
                         onDecrement={this.handleDecrement}
-                        onDelete={this.handleDelete} />
+                        onDelete={this.handleDelete}
+                        onAdding={this.handleAddition}
+                        onClear={this.handleClear} />
                 </main>
             </React.Fragment>
         );
@@ -26,7 +28,8 @@ class App extends Component {
             { id: 1, value: 4, fontSize: 15 },
             { id: 2, value: 5, fontSize: 15 },
             { id: 3, value: 6, fontSize: 15 },
-            { id: 4, value: 0, fontSize: 15 }
+            { id: 4, value: 0, fontSize: 15 },
+            { id: 5, value: 0, fontSize: 15 }
         ]
     };
 
@@ -57,6 +60,21 @@ class App extends Component {
         counters[counters.indexOf(counter)].value--;
         this.setState(counters);
     };
+
+    handleAddition = () => {
+        let nextValue;
+        if (this.state.counters.length > 0) {
+            nextValue = this.state.counters[this.state.counters.length - 1].id + 1;
+        } else {
+            nextValue = 0;
+        }
+        console.log("New ID value: ", nextValue);
+        this.setState({ counters: this.state.counters.concat({ id: nextValue, value: 0, fontSize: 15 }) });
+    }
+
+    handleClear = () => {
+        this.setState({ counters: [] });
+    }
 }
 
 export default App;
