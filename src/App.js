@@ -5,6 +5,12 @@ import NavBar from './components/navbar'
 import Counters from "./components/counters";
 
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+        this.updateFromServer = this.updateFromServer.bind(this);
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -18,7 +24,7 @@ class App extends Component {
                         onDelete={this.handleDelete}
                         onAdding={this.handleAddition}
                         onClear={this.handleClear}
-                        updateFromServer={this.updateFromServer} />
+                        update={this.updateFromServer} />
                 </main>
             </React.Fragment>
         );
@@ -38,7 +44,7 @@ class App extends Component {
         this.updateFromServer();
     }
 
-    updateFromServer = () => {
+    updateFromServer() {
         return fetch('/getUserList')
             .then((response) => response.json())
             .then((json) => {

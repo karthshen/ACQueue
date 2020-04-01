@@ -17,8 +17,8 @@ class Counters extends Component {
     document.getElementById("inputForm").reset();
   }
 
-  handlePostNewItem = () => {
-    fetch('/addUser', {
+  handlePostNewItem = async () => {
+    await fetch('/addUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -31,6 +31,18 @@ class Counters extends Component {
 
     this.setState({ inputField: "" });
     document.getElementById("inputForm").reset();
+
+    this.props.update();
+  }
+
+  handleGetRemoveByName = async (name) => {
+    await fetch('/removeUserByName?name=', name, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
   }
 
   render() {
