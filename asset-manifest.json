@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.js": "/AnimalCrossingQueue/static/js/main.c0a52d81.chunk.js",
-    "main.js.map": "/AnimalCrossingQueue/static/js/main.c0a52d81.chunk.js.map",
-    "runtime-main.js": "/AnimalCrossingQueue/static/js/runtime-main.fc0813ef.js",
-    "runtime-main.js.map": "/AnimalCrossingQueue/static/js/runtime-main.fc0813ef.js.map",
-    "static/css/2.f65acde2.chunk.css": "/AnimalCrossingQueue/static/css/2.f65acde2.chunk.css",
-    "static/js/2.9db30601.chunk.js": "/AnimalCrossingQueue/static/js/2.9db30601.chunk.js",
-    "static/js/2.9db30601.chunk.js.map": "/AnimalCrossingQueue/static/js/2.9db30601.chunk.js.map",
-    "index.html": "/AnimalCrossingQueue/index.html",
-    "precache-manifest.091e1e424bf9e50207c26d0757bbec48.js": "/AnimalCrossingQueue/precache-manifest.091e1e424bf9e50207c26d0757bbec48.js",
-    "service-worker.js": "/AnimalCrossingQueue/service-worker.js",
-    "static/css/2.f65acde2.chunk.css.map": "/AnimalCrossingQueue/static/css/2.f65acde2.chunk.css.map",
-    "static/js/2.9db30601.chunk.js.LICENSE.txt": "/AnimalCrossingQueue/static/js/2.9db30601.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/AnimalCrossingQueue/static/media/logo.5d5d9eef.svg"
+    "main.js": "/ACQueue/static/js/main.c0a52d81.chunk.js",
+    "main.js.map": "/ACQueue/static/js/main.c0a52d81.chunk.js.map",
+    "runtime-main.js": "/ACQueue/static/js/runtime-main.7e0c5f85.js",
+    "runtime-main.js.map": "/ACQueue/static/js/runtime-main.7e0c5f85.js.map",
+    "static/css/2.f65acde2.chunk.css": "/ACQueue/static/css/2.f65acde2.chunk.css",
+    "static/js/2.9db30601.chunk.js": "/ACQueue/static/js/2.9db30601.chunk.js",
+    "static/js/2.9db30601.chunk.js.map": "/ACQueue/static/js/2.9db30601.chunk.js.map",
+    "index.html": "/ACQueue/index.html",
+    "precache-manifest.3e68c6cb256341c84d6ad978f54af682.js": "/ACQueue/precache-manifest.3e68c6cb256341c84d6ad978f54af682.js",
+    "service-worker.js": "/ACQueue/service-worker.js",
+    "static/css/2.f65acde2.chunk.css.map": "/ACQueue/static/css/2.f65acde2.chunk.css.map",
+    "static/js/2.9db30601.chunk.js.LICENSE.txt": "/ACQueue/static/js/2.9db30601.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/ACQueue/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fc0813ef.js",
+    "static/js/runtime-main.7e0c5f85.js",
     "static/css/2.f65acde2.chunk.css",
     "static/js/2.9db30601.chunk.js",
     "static/js/main.c0a52d81.chunk.js"
