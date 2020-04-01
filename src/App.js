@@ -45,7 +45,7 @@ class App extends Component {
     }
 
     updateFromServer() {
-        return fetch('https://acqbackend.herokuapp.com/getUserList')
+        return fetch('/getUserList')
             .then((response) => response.json())
             .then((json) => {
                 var arr = [];

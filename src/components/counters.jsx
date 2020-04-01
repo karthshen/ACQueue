@@ -18,7 +18,7 @@ class Counters extends Component {
   }
 
   handlePostNewItem = async () => {
-    await fetch('https://acqbackend.herokuapp.com/addUser', {
+    await fetch('/addUser', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -36,7 +36,7 @@ class Counters extends Component {
   }
 
   handleGetRemoveByName = async (name) => {
-    await fetch('https://acqbackend.herokuapp.com/removeUserByName?name='.concat(name), {
+    await fetch('/removeUserByName?name='.concat(name), {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -48,7 +48,7 @@ class Counters extends Component {
   }
 
   handleGetServerClearList = async () => {
-    await fetch('https://acqbackend.herokuapp.com/clearUserList', {
+    await fetch('/clearUserList', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
