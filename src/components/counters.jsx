@@ -36,13 +36,27 @@ class Counters extends Component {
   }
 
   handleGetRemoveByName = async (name) => {
-    await fetch('/removeUserByName?name=', name, {
+    await fetch('/removeUserByName?name='.concat(name), {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
     });
+
+    this.props.update();
+  }
+
+  handleGetServerClearList = async () => {
+    await fetch('/clearUserList', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    });
+
+    this.props.update();
   }
 
   render() {
@@ -56,7 +70,7 @@ class Counters extends Component {
             <Counter
               key={counter.id}
               counter={counter}
-              onDelete={onDelete}
+              onDelete={this.handleGetRemoveByName}
               onIncrement={onIncrement}
               onDecrement={onDecrement}
             ></Counter>
@@ -80,7 +94,7 @@ class Counters extends Component {
           Reset
         </button>
         <button
-          onClick={onClear}
+          onClick={this.handleGetServerClearList}
           className="btn btn-danger btn-la m-2">Clear</button>
       </React.Fragment>
     );
