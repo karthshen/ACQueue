@@ -26,7 +26,7 @@ class Counter extends Component {
         <span style={this.styles} className={this.getBadgeClasses()}>
           {this.formatValue()}
         </span>
-        <button
+        {/* <button
           onClick={this.handleIncrement}
           className="btn btn-success btn-sm m-2"
         >
@@ -37,7 +37,7 @@ class Counter extends Component {
           className="btn btn-secondary btn-sm m-2"
         >
           Decrement
-        </button>
+        </button> */}
         <button
           onClick={() => this.props.onDelete(this.props.counter.id)}
           className="btn btn-danger btn-sm m-2"
@@ -64,13 +64,15 @@ class Counter extends Component {
   }
 
   formatValue() {
-    const value = this.props.counter.value;
+    let value = this.props.counter.value;
 
-    if (value === 0) {
-      return "Zero";
-    } else {
-      return value;
-    }
+    // if (value === 0) {
+    //   return "Zero";
+    // } else {
+    //   return value;
+    // }
+    console.log("Value: ", value);
+    return value;
   }
 
   renderTags() {

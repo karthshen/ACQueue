@@ -3,6 +3,20 @@ import Counter from "./counter";
 
 class Counters extends Component {
 
+  state = {
+    inputField: ""
+  }
+
+  updateInput = (evt) => {
+    this.setState({ inputField: evt.target.value });
+  }
+
+  handleAddNewItem = () => {
+    this.props.onAdding(this.state.inputField);
+    this.setState({ inputField: "" });
+    document.getElementById("inputForm").reset();
+  }
+
   render() {
 
     const { counters, onIncrement, onDecrement, onDelete, onReset, onAdding, onClear } = this.props;
@@ -23,13 +37,13 @@ class Counters extends Component {
         <div className="input-group">
           <span className="input-group-btn">
             <button
-              onClick={onAdding}
+              onClick={this.handleAddNewItem}
               className="btn btn-success btn-la m-2"
             >Add</button>
           </span>
-          <div className="col-xs-2 m-2">
-            <input type="text" className="form-control" placeholder="First name"></input>
-          </div>
+          <form className="col-xs-2 m-2" id="inputForm">
+            <input type="text" onChange={this.updateInput} className="form-control" placeholder="Name"></input>
+          </form>
         </div>
         <button
           onClick={onReset}

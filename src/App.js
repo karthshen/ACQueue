@@ -25,11 +25,11 @@ class App extends Component {
 
     state = {
         counters: [
-            { id: 1, value: 4, fontSize: 15 },
-            { id: 2, value: 5, fontSize: 15 },
-            { id: 3, value: 6, fontSize: 15 },
-            { id: 4, value: 0, fontSize: 15 },
-            { id: 5, value: 0, fontSize: 15 }
+            // { id: 1, value: 0, fontSize: 15 },
+            // { id: 2, value: 0, fontSize: 15 },
+            // { id: 3, value: 0, fontSize: 15 },
+            // { id: 4, value: 0, fontSize: 15 },
+            // { id: 5, value: 0, fontSize: 15 }
         ]
     };
 
@@ -61,7 +61,9 @@ class App extends Component {
         this.setState(counters);
     };
 
-    handleAddition = () => {
+    handleAddition = (inputText) => {
+        if (inputText.length == 0 || this.state.counters.filter(c => c.value === inputText).length >= 1)
+            return;
         let nextValue;
         if (this.state.counters.length > 0) {
             nextValue = this.state.counters[this.state.counters.length - 1].id + 1;
@@ -69,7 +71,8 @@ class App extends Component {
             nextValue = 0;
         }
         console.log("New ID value: ", nextValue);
-        this.setState({ counters: this.state.counters.concat({ id: nextValue, value: 0, fontSize: 15 }) });
+        console.log("InputText: ", inputText);
+        this.setState({ counters: this.state.counters.concat({ id: nextValue, value: inputText, fontSize: 15 }) });
     }
 
     handleClear = () => {
